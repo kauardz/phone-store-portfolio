@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🖤💛 PHONE STORE — Portfólio Oficial MANUS 1.6 LIFE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --primary: #FFD700;
+      --primary-dark: #CCAC00;
+      --bg: #000000;
+      --bg2: #0A0A0A;
+      --bg3: #151515;
+      --card: #111111;
+      --card-hover: #1A1A1A;
+      --text: #FFFFFF;
+      --text-muted: #A0A0A0;
+      --accent: #FFD700;
+      --danger: #FF3B30;
+      --border: rgba(255, 215, 0, 0.2);
+      --shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #000000 0%, #0a0a1a 50%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .tech-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(0, 0, 0, 0.95);
+      border-bottom: 2px solid var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.2));
+    }
+
+    .logo h1 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      display: none !important;
+    }
+
+    .header-badge {
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+
+    /* ===== URGENT BANNER ===== */
+    .urgent-banner {
+      background: linear-gradient(90deg, var(--primary) 0%, #FFE500 100%);
+      color: #000;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFF 50%, #FFD700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: 0.3s;
+    }
+
+    .feature-item:hover {
+      background: rgba(255, 215, 0, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* ===== TABS ===== */
+    .tabs-container {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 15px;
+    }
+
+    .tab-btn {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    /* ===== CHARTS ===== */
+    .charts-section {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .chart-card {
+      background: rgba(17, 17, 17, 0.8);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    .chart-card h3 {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .chart-container {
+      height: 200px;
+      position: relative;
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      max-width: 1400px;
+      margin: 30px auto 20px;
+      padding: 0 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(21, 21, 21, 0.8);
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      color: #fff;
+      border-radius: 50px;
+      outline: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .brand-pill {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+
+    .brand-pill.active, .brand-pill:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products-section {
+      max-width: 1400px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      border-left: 4px solid var(--primary);
+      padding-left: 15px;
+      margin: 40px 0 20px;
+    }
+
+    .section-header h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: rgba(17, 17, 17, 0.8);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.3s;
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .badge.fire {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .card-img {
+      height: 220px;
+      background: linear-gradient(135deg, #050505 0%, #0a0a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .card-info {
+      padding: 20px;
+    }
+
+    .card-brand {
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .card-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 5px 0 15px;
+    }
+
+    .price-block {
+      margin-bottom: 20px;
+    }
+
+    .price-card {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .price-pix {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: -5px;
+    }
+
+    .btn-buy {
+      display: block;
+      background: linear-gradient(135deg, var(--primary) 0%, #FFE500 100%);
+      color: #000;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .btn-buy:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: rgba(21, 21, 21, 0.95);
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo span {
+      color: var(--primary);
+    }
+
+    .footer-text {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .help-box {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px dashed var(--primary);
+      padding: 30px;
+      border-radius: var(--radius);
+      max-width: 500px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+    }
+
+    .help-box h4 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .btn-wa-large {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-wa-large:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .logo h1 {
+        display: none;
+      }
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="tech-bg"></div>
+
+<div class="urgent-banner">🔥 ESTOQUE ATUALIZADO AGORA MESMO — PROMOÇÕES IMPERDÍVEIS! 🔥</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="images/logo.png" alt="PHONE STORE Logo">
+      <h1>PHONE <span>STORE</span></h1>
+    </div>
+    <div class="header-badge">💰 PIX COM DESCONTO</div>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>PORTFÓLIO OFICIAL 2026</h2>
+  <p>Tecnologia de ponta com os melhores preços da cidade! Smartphones, Tablets e Caixas de Som de qualidade premium.</p>
+  
+  <div class="features-grid">
+    <div class="feature-item"><i class="fas fa-check-circle"></i> GARANTIA TOTAL</div>
+    <div class="feature-item"><i class="fas fa-box"></i> LACRADOS</div>
+    <div class="feature-item"><i class="fas fa-shield-alt"></i> ANATEL</div>
+    <div class="feature-item"><i class="fas fa-credit-card"></i> PARCELAMOS</div>
+  </div>
+</section>
+
+<section class="tabs-container">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="setCategory('all', this)">📱 TODOS</button>
+    <button class="tab-btn" onclick="setCategory('Smartphone', this)">📲 SMARTPHONES</button>
+    <button class="tab-btn" onclick="setCategory('Som', this)">🔊 CAIXAS DE SOM</button>
+    <button class="tab-btn" onclick="setCategory('Tablet', this)">🖥️ TABLETS</button>
+  </div>
+</section>
+
+
+
+<div class="filter-bar">
+  <input type="text" class="search-input" id="searchInput" placeholder="Busque por marca, modelo ou especificação..." oninput="renderProducts()">
+  <div class="brand-pill active" onclick="setBrand('all', this)">Todas</div>
+  <div class="brand-pill" onclick="setBrand('Samsung', this)">Samsung</div>
+  <div class="brand-pill" onclick="setBrand('Apple', this)">Apple</div>
+  <div class="brand-pill" onclick="setBrand('Xiaomi', this)">Xiaomi</div>
+  <div class="brand-pill" onclick="setBrand('JBL', this)">JBL</div>
+  <div class="brand-pill" onclick="setBrand('Amvox', this)">Amvox</div>
+</div>
+
+<section class="products-section" id="productsContainer"></section>
+
+<footer>
+  <div class="footer-logo">PHONE <span>STORE</span></div>
+  <p class="footer-text">Sua loja de confiança para tecnologia de ponta. Atendimento especializado, garantia total e suporte pós-venda.</p>
+  
+  <div class="help-box">
+    <h4>💡 Precisa de ajuda para escolher?</h4>
+    <p>Quer melhor desempenho? Melhor câmera? Som de qualidade? Custo-benefício?</p>
+    <p><strong>Nossos especialistas estão prontos para ajudar!</strong></p>
+    <a href="https://wa.me/5591998138942?text=Olá! Preciso de ajuda para escolher o melhor produto para meu perfil." class="btn-wa-large" target="_blank">
+      <i class="fab fa-whatsapp"></i> FALAR COM ESPECIALISTA
+    </a>
+  </div>
+  <p style="margin-top: 40px; font-size: 0.7rem; color: #444;">&copy; 2026 PHONE STORE — Todos os direitos reservados.</p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+let currentBrand = 'all';
+let currentCategory = 'all';
+
+function setCategory(category, el) {
+  currentCategory = category;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts();
+  initCharts();
+}
+
+function setBrand(brand, el) {
+  currentBrand = brand;
+  document.querySelectorAll('.brand-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts();
+}
+
+function renderProducts() {
+  const container = document.getElementById('productsContainer');
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  container.innerHTML = '';
+
+  const filtered = allProducts.filter(p => {
+    const matchCategory = currentCategory === 'all' || p.category === currentCategory;
+    const matchBrand = currentBrand === 'all' || p.brand === currentBrand;
+    const matchSearch = p.name.toLowerCase().includes(search) || p.brand.toLowerCase().includes(search);
+    return matchCategory && matchBrand && matchSearch;
+  });
+
+  const brands = [...new Set(filtered.map(p => p.brand))];
+
+  brands.forEach(brand => {
+    const section = document.createElement('div');
+    section.className = 'brand-section';
+    section.innerHTML = `<div class="section-header"><h3>${brand}</h3></div>`;
+    
+    const grid = document.createElement('div');
+    grid.className = 'products-grid';
+    
+    filtered.filter(p => p.brand === brand).forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      const badge = p.badge ? `<div class="badge ${p.badge.includes('🔥') || p.badge.includes('OFERTA') ? 'fire' : ''}">${p.badge}</div>` : '';
+      const pricePixFormatted = p.pix.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      const priceCardFormatted = p.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      
+      card.innerHTML = `
+        ${badge}
+        <div class="card-img"><img src="${p.img}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/200?text=PHONE+STORE'"></div>
+        <div class="card-info">
+          <div class="card-brand">${p.brand}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="price-block">
+            ${p.pix < p.price ? `<div class="price-card">${priceCardFormatted}</div>` : ''}
+            <div class="price-pix">${pricePixFormatted}</div>
+            <span class="price-label">À VISTA NO PIX</span>
+          </div>
+          <a href="https://wa.me/?text=Olá! Tenho interesse no ${p.brand} ${p.name} por ${pricePixFormatted}" target="_blank" class="btn-buy">
+            <i class="fab fa-whatsapp"></i> COMPRAR AGORA
+          </a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+}
+
+function initCharts() {
+  const categoryData = {};
+  const filtered = allProducts.filter(p => currentCategory === 'all' || p.category === currentCategory);
+  
+  filtered.forEach(p => categoryData[p.category] = (categoryData[p.category] || 0) + 1);
+  
+  const chartBrandsCtx = document.getElementById('chartCategories');
+  if (chartBrandsCtx.chart) chartBrandsCtx.chart.destroy();
+  
+  chartBrandsCtx.chart = new Chart(chartBrandsCtx, {
+    type: 'bar',
+    data: {
+      labels: Object.keys(categoryData),
+      datasets: [{
+        label: 'Produtos',
+        data: Object.values(categoryData),
+        backgroundColor: '#FFD700',
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: '#222' }, ticks: { color: '#666' } },
+        x: { grid: { display: false }, ticks: { color: '#666', font: { size: 10 } } }
+      }
+    }
+  });
+
+  const prices = { 'Até 1.5k': 0, '1.5k - 3k': 0, '3k - 6k': 0, '6k+': 0 };
+  filtered.forEach(p => {
+    if (p.pix <= 1500) prices['Até 1.5k']++;
+    else if (p.pix <= 3000) prices['1.5k - 3k']++;
+    else if (p.pix <= 6000) prices['3k - 6k']++;
+    else prices['6k+']++;
+  });
+
+  const chartPricesCtx = document.getElementById('chartPrices');
+  if (chartPricesCtx.chart) chartPricesCtx.chart.destroy();
+  
+  chartPricesCtx.chart = new Chart(chartPricesCtx, {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(prices),
+      datasets: [{
+        data: Object.values(prices),
+        backgroundColor: ['#FFD700', '#CCAC00', '#998200', '#665600'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'right', labels: { color: '#666', font: { size: 10 } } } }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  initCharts();
+});
+</script>
+</body>
+</html>
